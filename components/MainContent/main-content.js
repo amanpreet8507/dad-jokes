@@ -1,5 +1,6 @@
+ 
 const MainContent = () => {
-  return `<main >
+  return `<main>
 
     <h1 class="main__h1">Dad Joke of the Day</h1>
     <div class="main__joke" ></div>
