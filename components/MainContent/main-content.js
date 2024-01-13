@@ -1,9 +1,31 @@
- 
-const MainContent = () => {
+// GET https://icanhazdadjoke.com/j/<joke_id>
+
+
+const getJokes = async () => {
+  const url = "https://icanhazdadjoke.com/"
+  try{
+    const response = await axios.get(url, {
+      headers: {
+          Accept: 'application/json',
+      }});
+      const finalResult = response.data.joke;
+      console.log(finalResult);
+      return finalResult;
+  }catch(error){
+      console.error('Error getJokes: ', error)
+  }
+}
+
+getJokes()
+// console.log(() => getJokes)
+// const promise = getJokes();
+// const final = promise.then((data) => {return data});
+const MainContent = () => { 
+
   return `<main>
 
     <h1 class="main__h1">Dad Joke of the Day</h1>
-    <div class="main__joke" ></div>
+    <div class="main__joke" >"What kind of magic do cows believe in? MOODOO. ${getJokes()} "</div>
 
 
     <section class="comment-section">
